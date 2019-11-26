@@ -22,8 +22,16 @@ router.route('/')
 
 router.route('/:id')
     .get((req, res, next) => {
-        console.log("Something")
-        
+        Category.findOne(
+            {_id : req.params.id},
+            (err, foundCategory) => {
+                if (err){
+                    res.status(500)
+                    return next(err)
+                }
+                return res.status(200).send(foundCategory)
+            }
+        )
     })
 
 module.exports = router;

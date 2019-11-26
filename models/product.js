@@ -34,6 +34,10 @@ const productSchema = new Schema({
         type: String,
         default: "none"
     },
+    order: {
+        type: Number,
+        default: 0
+    },
     createdAt: {
         type: Date,
         default: Date.now

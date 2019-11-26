@@ -31,6 +31,9 @@ app.use('/api/admin/shop', require('./routes/shopAdminRoutes.js'))
 // category
 app.use('/category', require('./routes/categoryRoutes.js'))
 app.use('/api/admin/category', require('./routes/categoryAdminRoutes.js'))
+// product
+app.use('/product', require('./routes/productRoutes.js'))
+app.use('/api/admin/product', require('./routes/productAdminRoutes.js'))
 // authorization 
 app.use("/auth", require('./routes/authRoutes.js'))
 

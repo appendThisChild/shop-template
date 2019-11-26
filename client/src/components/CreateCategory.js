@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-
 const CreateCategory = ({ submitCategory }) => {
     const [newCategory, setNewCategory] = useState({
         title: ''
@@ -15,7 +14,6 @@ const CreateCategory = ({ submitCategory }) => {
         e.preventDefault()
         submitCategory(newCategory)
     }
-
     return(
         <form onSubmit={handleSubmit}>
             <h1>Create Category</h1>

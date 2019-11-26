@@ -32,6 +32,7 @@ const Dashboard = props => {
             {section === "category" ?
             <CategoryList admin={true} _id={id} />
             :null}
+            {/* add product here */}
         </div>
     )
 }

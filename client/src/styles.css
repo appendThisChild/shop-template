@@ -2,15 +2,15 @@
     margin: 0px;
     padding: 0px;
 }
-button:focus {
+/* button:focus {
     outline: none;
 }
 input:focus {
     outline: none;
-}
-textarea:focus {
+} */
+/* textarea:focus {
     outline: none;
-}
+} */
 textarea {
     resize: none;
 }
@@ -287,5 +287,186 @@ textarea {
 /* /dashboard/category/:id */
 /* list of product of category */
 .dashboardCategoryList {
+    border: 1px solid black;
+    background-color: lightgray;
+    padding: 5px;
+}
+.dashboardCategoryList > h1 {
+    border-bottom: 1px solid black;
+    font-size: 22px;
+    font-style: italic;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.dashboardCategoryList > form {
+    border: 1px solid black;
+    background-color: gray;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.dashboardCategoryList > form > h1 {
+    border-bottom: 1px solid black;
+    color: white;
+    font-size: 22px;
+    font-style: italic;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.dashboardCategoryList > form > input {
+    display: block;
+    border: 2px inset white;
+    width: 75%;
+    margin: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: auto;
+    font-size: 18px;
+    text-align: center;
+}
+.dashboardCategoryList > form > button {
+    border: 2px outset white;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: auto;
+    font-size: 18px;
+    padding: 3px;
+}
+
+
+
+/* products displayed */
+.dashboardCategoryList > main {
+    border: 1px solid black;
+    background-color: gray;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     
+}
+.dashboardCategoryList > main > section {
+    border: 1px solid black;
+    overflow: hidden;
+    /* as it gets bigger, implement the new width and margins */
+
+
+
+    /* margin-top: 30px; */
+    /* margin-bottom: 30px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+
+
+
+    /* width: 275px; */
+    width: 100%;
+    height: 300px;
+}
+
+
+
+
+
+
+
+.dashboardCategoryList > main > section > aside {
+    position: relative;
+    top: -300px;
+}
+.dashboardCategoryList > main > section > aside > h1 {
+    font-weight: normal;
+    font-size: 32px;
+    font-style: italic;
+    padding: 5px;
+    padding-top: 3px;
+}
+
+
+
+
+
+
+
+.dashboardCategoryList > main > section > section {
+    width: 100%;
+    height: 76%;
+}
+.dashboardCategoryList > main > section > section > img {
+    height: 100%;
+    width: 100%;
+
+
+}
+.inStock {
+    background-color: rgba(121, 121, 121, 0.3);
+    text-align: center;
+    font-size: 38px;
+    color: rgba(0, 0, 0, 0.3);
+    transform: skewY(-40deg);
+    position: relative;
+    top: -101px;
+    opacity: 0;
+}
+.soldOut {
+    background-color: rgba(255, 238, 0, 0.3);
+    text-align: center;
+    font-size: 38px;
+    color: rgba(0, 0, 0, 0.3);
+    transform: skewY(-40deg);
+    position: relative;
+    top: -101px;
+}
+
+
+
+
+
+
+
+.dashboardCategoryList > main > section > main {
+    padding: 5px;
+    /* border: 1px solid black; */
+}
+.dashboardCategoryList > main > section > main > h2 {
+    font-size: 20px;
+    text-align: center;
+    font-weight: normal;
+    font-style: italic;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+.dashboardCategoryList > main > section > main > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dashboardCategoryList > main > section > main > section > p:nth-child(1) {
+    font-size: 20px;
+    padding-right: 5px;
+}
+.dashboardCategoryList > main > section > main > section > p:nth-child(2) {
+    font-size: 18px;
+    margin-right: 5px;
+}
+.dashboardCategoryList > main > section > main > section > p:nth-child(3) {
+    text-decoration: line-through;
+    font-size: 14px;
+    font-style: italic;
+    color: rgb(58, 58, 58);
+}
+.dashboardCategoryList > main > section > main > section > p:nth-child(4) {
+    font-size: 22px;
+    margin-left: 10px;
+    padding-right: 10px;
+}
+.dashboardCategoryList > main > section > main > section > p:nth-child(5) {
+    font-size: 18px;
+    color: orange;
 }

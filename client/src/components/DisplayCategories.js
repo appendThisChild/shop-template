@@ -12,14 +12,11 @@ const DisplayCategories = props => {
         }
     }
     const mappedCategories = categories.map(category => {
-        if (admin) {
+        if (category.active || admin) {
             return <CategoryDisplay key={category._id} admin={admin} openCategory={openCategory} category={category}/>
-        } else if (category.active) {
-            return <CategoryDisplay key={category._id} openCategory={openCategory} category={category}/>
         } else {
             return null;
         }
-    
     })
     return(
         <main>

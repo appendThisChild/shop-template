@@ -17,9 +17,14 @@ const App = () => {
             <Prompt />
             <Switch>
                 <Route path="/template" render={renderProps => <Template {...renderProps}/>}/>
-                
+                {/*  */}
+                {/*  */}
+                {/* I should create some styling for the client sides */}
+                {/*  */}
+                {/*  */}
                 <Route path="/shop" render={renderProps => <Shop className="" {...renderProps}/>}/>
                 <Route path="/category=:id" render={renderProps => <CategoryList className="" {...renderProps}/>}/>
+                {/* add product here */}
                 <Route path="/auth=:type" render={renderProps => <Auth {...renderProps}/>}/>
                 <Route path="/password" render={renderProps => <Password {...renderProps}/>}/>
                 <Route path="/dashboard/:section=:id" render={renderProps => <Dashboard {...renderProps}/>}/>
