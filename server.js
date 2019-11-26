@@ -21,11 +21,13 @@ app.use(morgan('dev'))
 app.use("/api", expressJwt({secret: process.env.SECRET}))
 app.use("/api/admin", (req, res, next) => checkIfAdmin(req, res, next))
 
-const conn = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/booking-template', options)
+const conn = mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/shopping-template', options)
 conn.then(() => console.log('[o] Connected to the DB'), (err) => console.log(err))
 
 // routes
 app.use('/template', require('./routes/templateRoutes.js'))
+// shop
+app.use('/api/admin/shop', require('./routes/shopAdminRoutes.js'))
 // category
 app.use('/category', require('./routes/categoryRoutes.js'))
 app.use('/api/admin/category', require('./routes/categoryAdminRoutes.js'))

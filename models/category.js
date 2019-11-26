@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const categorySchema = new Schema({
     title: {
         type: String,
-        require: true
+        required: true
     },
     active: {
         type: Boolean,

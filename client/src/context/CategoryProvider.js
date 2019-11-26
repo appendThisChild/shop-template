@@ -18,6 +18,11 @@ const CategoryProvider = props => {
 
     const getCategory = cb => {
         console.log(category_id)
+
+
+        // this is where I left off
+
+
         // setCategory()
         axios.get(`/category/${category_id}`)
             .then(res => console.log(res.data))
