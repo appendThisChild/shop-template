@@ -17,8 +17,9 @@ const App = () => {
             <Prompt />
             <Switch>
                 <Route path="/template" render={renderProps => <Template {...renderProps}/>}/>
-                <Route path="/shop" render={renderProps => <Shop {...renderProps}/>}/>
-                <Route path="/category=:id" render={renderProps => <CategoryList {...renderProps}/>}/>
+                
+                <Route path="/shop" render={renderProps => <Shop className="" {...renderProps}/>}/>
+                <Route path="/category=:id" render={renderProps => <CategoryList className="" {...renderProps}/>}/>
                 <Route path="/auth=:type" render={renderProps => <Auth {...renderProps}/>}/>
                 <Route path="/password" render={renderProps => <Password {...renderProps}/>}/>
                 <Route path="/dashboard/:section=:id" render={renderProps => <Dashboard {...renderProps}/>}/>

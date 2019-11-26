@@ -7,7 +7,7 @@ const CategoryList = props => {
     // const [templateData, setTemplateData] = useState('')
     const { _id, admin, className } = props
     const { category_id, setCategory_id, getCategory, getProducts } = useCategory()
-    
+
 
     useEffect(() => {
         setCategory_id(admin ? _id : props.match.params.id)
@@ -23,7 +23,7 @@ const CategoryList = props => {
     }, [category_id])
 
     return(
-        <div className={className}>
+        <div className={admin ? "dashboardCategoryList" : className}>
             Category
             <h1>title</h1>
             {admin ?

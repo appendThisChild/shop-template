@@ -30,7 +30,7 @@ const Dashboard = props => {
             <Shop admin={true} {...props}/>
             :null}
             {section === "category" ?
-            <CategoryList admin={true} _id={id}  className="dashboardCategoryList" />
+            <CategoryList admin={true} _id={id} />
             :null}
         </div>
     )

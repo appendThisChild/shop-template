@@ -21,7 +21,7 @@ const Shop = props => {
             {admin ?
             <CreateCategory submitCategory={postNewCategory}/>
             :null}
-            <DisplayCategories admin={admin} _id={0} categories={categories} {...props}/>
+            <DisplayCategories admin={admin} categories={categories} {...props}/>
         </div>
     )
 }
