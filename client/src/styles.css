@@ -114,6 +114,21 @@ textarea {
 
 
 
+/* /dashboard */
+/* dashboard nav */
+.dashboardNav {
+    border: 1px solid black;
+    background-color: lightgray;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.dashboardNav > a {
+    font-size: 18px;
+}
+
+
 
 
 

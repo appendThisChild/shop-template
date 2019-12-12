@@ -10,6 +10,7 @@ import { PromptProvider } from "./context/PromptProvider.js"
 import { CategoryProvider } from "./context/CategoryProvider.js"
 import { UserProvider } from "./context/UserProvider.js"
 import { ShopProvider } from "./context/ShopProvider.js"
+import { ProductProvider } from "./context/ProductProvider.js"
 
 
 ReactDOM.render( 
@@ -19,7 +20,9 @@ ReactDOM.render(
                 <UserProvider>
                     <ShopProvider>
                         <CategoryProvider>
-                            <App />
+                            <ProductProvider>
+                                <App />
+                            </ProductProvider>
                         </CategoryProvider>
                     </ShopProvider>
                 </UserProvider>

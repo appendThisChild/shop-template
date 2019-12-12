@@ -7,7 +7,7 @@ const ProductDisplay = ({ product, openProduct }) => {
 
     useEffect(() => {
         // find photo
-        // 
+        setImage(DefaultImage)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

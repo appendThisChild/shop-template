@@ -3,15 +3,13 @@ import React from 'react'
 import ProductDisplay from "./ProductDisplay.js"
 
 const DisplayProducts = props => {
-    const { admin, products } = props
+    const { admin, products, history } = props
 
     const openProduct = _id => {
         if (admin){
-            console.log("send to dashboard for product")
-            
+            history.push(`/dashboard/product=${_id}`)
         } else {
-            console.log("send to product")
-
+            history.push(`/product=${_id}`)
         }
     }
 

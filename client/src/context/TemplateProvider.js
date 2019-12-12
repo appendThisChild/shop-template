@@ -28,7 +28,7 @@ const TemplateProvider = props => {
 const useTemplate = () => {
     const context = useContext(TemplateContext)
     if (!context){
-        throw new Error("You must use PasswordRecoveryProvider to consume PasswordRecovery Context")
+        throw new Error("You must use Provider to consume Context")
     }
     return context
 }

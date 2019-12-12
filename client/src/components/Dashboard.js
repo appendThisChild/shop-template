@@ -4,9 +4,11 @@ import React, { useEffect } from 'react'
 import { useUser } from "../context/UserProvider.js"
 
 // Components
+import DashboardNav from "./DashboardNav.js"
 import ShopDetails from "./ShopDetails.js"
 import Shop from "./Shop.js"
 import CategoryList from './CategoryList.js'
+import ProductDetails from './ProductDetails.js'
 
 const Dashboard = props => {
     const { section, id } = props.match.params
@@ -20,7 +22,7 @@ const Dashboard = props => {
     
     return(
         <div>
-            Dashboard Nav
+            <DashboardNav />
             {section === "general" ?
             <>
                 <ShopDetails {...props}/>    
@@ -30,9 +32,11 @@ const Dashboard = props => {
             <Shop admin={true} {...props}/>
             :null}
             {section === "category" ?
-            <CategoryList admin={true} _id={id} />
+            <CategoryList admin={true} _id={id} {...props}/>
             :null}
-            {/* add product here */}
+            {section === "product" ?
+            <ProductDetails admin={true} _id={id} {...props}/>
+            :null}
         </div>
     )
 }

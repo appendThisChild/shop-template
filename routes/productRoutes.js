@@ -5,6 +5,8 @@ const Product = require('../models/product.js')
 router.route('/all/:id')
     .post((req, res, next) => {
         console.log(req.body)
+        // contains information about page selections to narrow down product display
+        
         Product.find(
             {category_id: req.params.id},
             (err, foundProducts) => {
