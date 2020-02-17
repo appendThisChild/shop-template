@@ -2,6 +2,7 @@ import React from "react"
 import { Switch, Route } from "react-router-dom"
 
 // components
+import PageNotFound from "./components/PageNotFound.js"
 import Template from "./components/Template.js"
 import Prompt from "./components/Prompt.js"
 import Shop from "./components/Shop.js"
@@ -17,6 +18,7 @@ const App = () => {
         <div>
             <Prompt />
             <Switch>
+                <Route path="/pageNotFound" render={renderProps => <PageNotFound {...renderProps}/>}/>
                 <Route path="/template" render={renderProps => <Template {...renderProps}/>}/>
                 {/*  */}
                 {/*  */}

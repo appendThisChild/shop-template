@@ -9,19 +9,28 @@ const ProductProvider = props => {
     const [product, setProduct] = useState('')
     // const [image, setImage] = useState(DefaultImage)
 
-    // const data = useMemo(() => ({ providerData, setProviderData }), [providerData])
-
-    const getProduct = _id => {
+    const getProduct = (_id, admin, cb) => {
         axios.get(`/product/${_id}`)
-            .then(res => setProduct(res.data))
-            .catch(err => console.log(err.response.data.errMsg))
+            .then(res => {
+                if (res.data.active || admin){
+                    setProduct(res.data)
+                    cb("success")
+                } else {
+                    cb("not active")
+                }
+            })
+            .catch(err => cb(err.response.data.errMsg))
+    }
+    const resetProduct = () => {
+        setProduct('')
     }
 
     return(
         <ProductContext.Provider 
             value={{
                 product,
-                getProduct
+                getProduct,
+                resetProduct
             }}
             {...props}
         />

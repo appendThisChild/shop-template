@@ -4,17 +4,25 @@ import React, { useEffect } from 'react'
 import { useProduct } from "../context/ProductProvider.js" 
 
 const ProductDetails = props => {
-    const {_id, admin, className} = props
+    const {admin, className} = props
 
-    const { product, getProduct } = useProduct()
+    const { product, getProduct, resetProduct } = useProduct()
 
     useEffect(() => {
-        getProduct(admin ? _id : props.match.params.id)
+        getProduct(props.match.params.id, admin, (message) => {
+            if (message !== "success"){
+                props.history.push("/pageNotFound")
+            }
+        })
+        return () => {
+            resetProduct()
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
     console.log(product)
-    if (product.active || admin){
+    if (product === ''){
+        return null
+    } else {
         return(
             <div className={admin ? "dashboardProduct" : className}>
                 {/* showing the details of the product */}
@@ -22,15 +30,8 @@ const ProductDetails = props => {
                 {/*  */}
                 Product Details
             </div>
-        )
-    } else {
-        return(
-            <div className="noProduct">
-                <h2>"Product Doesn't Exist"</h2>
-            </div>
-        )
-    } 
-    
+        ) 
+    }
 }
 
 export default ProductDetails;

@@ -33,7 +33,7 @@ const CategoryDisplay = ({ admin, category, openCategory }) => {
                 <h1 onClick={() => openCategory(category._id)}>{category.title}</h1>
                 {admin ?
                 <aside>
-                    <span onClick={() => updateCategory(category._id, { ...category, active: !category.active})}>{category.active ? <>&#x2691;</> : <>&#x2690;</>}</span>
+                    <span onClick={() => updateCategory(category._id, { active: !category.active})}>{category.active ? <>&#x2691;</> : <>&#x2690;</>}</span>
                     <span onClick={() => setOnEdit(!onEdit)}>&#x270E;</span>
                     <span onClick={() => deleteCategory(category._id)}>&#x2612;</span>
                 </aside>

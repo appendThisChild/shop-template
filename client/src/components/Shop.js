@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Provider
 import { useShop } from "../context/ShopProvider.js"
@@ -9,6 +9,7 @@ import DisplayCategories from "./DisplayCategories.js"
 
 const Shop = props => {
     const { admin, className } = props
+    const [createToggle, setCreateToggle] = useState(false)
     const { categories, getCategories, postNewCategory } = useShop()
     
     useEffect(() => {
@@ -19,9 +20,13 @@ const Shop = props => {
         <div className={admin ? "dashboardShop" : className}>
             <h1>Shop</h1>
             {admin ?
-            <CreateCategory submitCategory={postNewCategory}/>
+                <span onClick={() => setCreateToggle(!createToggle)}>{createToggle ? <>Cancel</> : <>Create New Category</>}</span>
             :null}
-            <DisplayCategories admin={admin} categories={categories} {...props}/>
+            {createToggle ?
+                <CreateCategory submitCategory={postNewCategory} toggler={setCreateToggle}/>
+            : 
+                <DisplayCategories admin={admin} categories={categories} {...props}/>
+            }
         </div>
     )
 }

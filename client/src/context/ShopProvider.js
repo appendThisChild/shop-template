@@ -29,6 +29,9 @@ const ShopProvider = props => {
             .catch(err => console.log(err.response.data.errMsg))
         }
     }
+    const resetShopDetails = () => {
+        setShopDetails({})
+    }
     const getCategories = () => {
         axios.get('/category')
             .then(res => setCategories(res.data))
@@ -75,6 +78,7 @@ const ShopProvider = props => {
         <ShopContext.Provider 
             value={{
                 shopDetails,
+                resetShopDetails,
                 categories,
                 getDetails,
                 getCategories,

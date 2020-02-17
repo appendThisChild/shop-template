@@ -19,23 +19,20 @@ const Dashboard = props => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
     return(
         <div>
             <DashboardNav />
             {section === "general" ?
-            <>
                 <ShopDetails {...props}/>    
-            </>
             : null}
             {section === "shop" ?
-            <Shop admin={true} {...props}/>
+                <Shop admin={true} {...props}/>
             :null}
             {section === "category" ?
-            <CategoryList admin={true} _id={id} {...props}/>
+                <CategoryList admin={true} {...props}/>
             :null}
             {section === "product" ?
-            <ProductDetails admin={true} _id={id} {...props}/>
+                <ProductDetails admin={true} _id={id} {...props}/>
             :null}
         </div>
     )

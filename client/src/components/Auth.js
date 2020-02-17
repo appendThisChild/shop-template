@@ -47,22 +47,20 @@ const Auth = props => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
     return(
-        <div>
-            <AuthForm 
-                className="authForm"
-                title={onLogin ? "Login" : "Sign Up"}
-                btnText={onLogin ? "Sign In" : "Create Account"}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                email={authCredentials.email}
-                password={authCredentials.password}
-                firstName={authCredentials.firstName}
-                lastName={authCredentials.lastName}
-                login={onLogin}
-                setLogin={setOnLogin}
-                errMsg={errMsg}
-            />
-        </div>
+        <AuthForm 
+            className="authForm"
+            title={onLogin ? "Login" : "Sign Up"}
+            btnText={onLogin ? "Sign In" : "Create Account"}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            email={authCredentials.email}
+            password={authCredentials.password}
+            firstName={authCredentials.firstName}
+            lastName={authCredentials.lastName}
+            login={onLogin}
+            setLogin={setOnLogin}
+            errMsg={errMsg}
+        />
     )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CreateProduct = ({ submitProduct }) => {
+const CreateProduct = ({ submitProduct, toggler }) => {
     const [newProduct, setNewProduct] = useState({
         title: "",
         subTitle: "",
@@ -33,6 +33,7 @@ const CreateProduct = ({ submitProduct }) => {
             }
         })
         submitProduct({...newProduct, quantity: parseInt(newProduct.quantity) , price: newPriceObj})
+        toggler(false)
     }
     return(
         <form onSubmit={handleSubmit}>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Provider
 import { useCategory } from "../context/CategoryProvider.js"
@@ -8,27 +8,48 @@ import CreateProduct from "./CreateProduct.js"
 import DisplayProducts from "./DisplayProducts.js"
 
 const CategoryList = props => {
-    const { _id, admin, className } = props
-    const { category_id, setCategory_id, category, products, getCategory, getProducts, postNewProduct } = useCategory()
+    const { admin, className } = props
+    const [createToggle, setCreateToggle] = useState(false)
+    const { category_id, setCategory_id, category, products, getCategory, getProducts, resetCategory, postNewProduct } = useCategory()
+    const { id } = props.match.params
     useEffect(() => {
-        setCategory_id(admin ? _id : props.match.params.id)
+        setCategory_id(id)
+        return () => {
+            resetCategory()
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(() => {
-        getCategory(admin, () => getProducts())
+        if (category_id !== 0){
+            getCategory(admin, (message) => {
+                if (message === "success"){
+                    getProducts()
+                } else {
+                    props.history.push("/pageNotFound")
+                }
+            })
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category_id])
-    return(
-        <div className={admin ? "dashboardCategoryList" : className}>
-            <h1>{category.title}</h1>
-            {admin ?
-            <>
-            <CreateProduct submitProduct={postNewProduct} />
-            </>
-            :null}
-            <DisplayProducts admin={admin} products={products} {...props}/>
-        </div>  
-    )
+    if (category === ''){
+        return null
+    } else {
+        return(
+            <div className={admin ? "dashboardCategoryList" : className}>
+                <h1>{category.title}</h1>
+                {admin ?
+                    <span onClick={() => setCreateToggle(!createToggle)}>{createToggle ? <>Cancel</> : <>Create New Product</>}</span>
+                :null}
+                {createToggle ?
+                    <CreateProduct submitProduct={postNewProduct} toggler={setCreateToggle}/>
+                :
+                    <DisplayProducts admin={admin} products={products} {...props}/>
+                }
+                
+            </div>  
+        )
+    }
+    
 }
 
 export default CategoryList;

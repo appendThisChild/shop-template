@@ -4,12 +4,15 @@ import React, { useEffect } from 'react'
 import { useShop } from "../context/ShopProvider.js"
 
 const ShopDetails = props => {
-    const { shopDetails, getDetails } = useShop()
+    const { shopDetails, getDetails, resetShopDetails } = useShop()
     const openShop = () => {
         props.history.push("/dashboard/shop")
     }
     useEffect(() => {
         getDetails()
+        return () => {
+            resetShopDetails()
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const shopDetailsArray = Object.entries(shopDetails)

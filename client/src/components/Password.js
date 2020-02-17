@@ -14,7 +14,7 @@ const Password = props => {
         if (user.email === "") {
             props.history.push("/auth=login", props.history.location.state)
         } else if (sessionStorage.getItem('token') !== null){
-            props.history.push(props.history.location.state)
+            props.history.push(props.history.location.state || "/")
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token])

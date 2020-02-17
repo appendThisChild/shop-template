@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CreateCategory = ({ submitCategory }) => {
+const CreateCategory = ({ submitCategory, toggler }) => {
     const [newCategory, setNewCategory] = useState({
         title: ''
     })
@@ -13,6 +13,7 @@ const CreateCategory = ({ submitCategory }) => {
     const handleSubmit = e => {
         e.preventDefault()
         submitCategory(newCategory)
+        toggler(false)
     }
     return(
         <form onSubmit={handleSubmit}>
