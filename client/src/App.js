@@ -11,6 +11,7 @@ import Auth from "./components/Auth.js"
 import Password from "./components/Password.js"
 import Dashboard from "./components/Dashboard.js"
 import ProductDetails from "./components/ProductDetails.js"
+import Home from "./components/Home.js"
 
 const App = () => {
 
@@ -20,6 +21,24 @@ const App = () => {
             <Switch>
                 <Route path="/pageNotFound" render={renderProps => <PageNotFound {...renderProps}/>}/>
                 <Route path="/template" render={renderProps => <Template {...renderProps}/>}/>
+
+                <Route exact path="/" render={renderProps => <Home {...renderProps}/>}/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {/*  */}
                 {/*  */}
                 {/* I should create some styling for the client sides */}
