@@ -10,6 +10,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
     "readline-sync": "^1.4.10",
+    "styled-components": "^5.0.1",
     "use-react-router": "^1.0.7"
   },
   "scripts": {
