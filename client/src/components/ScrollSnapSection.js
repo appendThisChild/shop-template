@@ -28,6 +28,8 @@ const SectionStyle = styled.div`
         align-items: center;
         border: 0;
         background-color: transparent;
+
+        z-index: 10;
     }
     > aside > button > span {
         display: block;
@@ -36,8 +38,8 @@ const SectionStyle = styled.div`
         border-top-left-radius: .3em;
         border-bottom-right-radius: .3em;
 
-        border-top: .3em solid rgba(0,0,0,.5);
-        border-right: .3em solid rgba(0,0,0,.5);
+        border-top: .3em solid grey;
+        border-right: .3em solid grey;
     }
     > div {
         grid-row: 1/-1;

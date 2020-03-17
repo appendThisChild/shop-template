@@ -12,14 +12,13 @@ import HomeTop from './HomeTop.js'
 const Home = () => {
 
     useEffect(() => {
-        // document.getElementById("cocks").scrollIntoView()
+        // document.getElementById("inProgress").scrollIntoView()
     }, [])
     
     return(
         <ScrollSnap vertical={true}>
             <ScrollSnapSection>
                 <HomeTop />
-                
             </ScrollSnapSection>
             <ScrollSnapSection>
                 <main>
@@ -34,8 +33,8 @@ const Home = () => {
                     </section>
                     </ScrollSnapSection>
                     <ScrollSnapSection>
-                    <section id="cocks">
-                        Section
+                    <section id="inProgress">
+                        Section 2
                     </section>
                     </ScrollSnapSection>
                 </ScrollSnap>
