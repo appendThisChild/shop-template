@@ -1,28 +1,57 @@
 import React from "react"
 import styled from 'styled-components'
 
+import SmallLogo from '../images/A_trasp.png'
+
 const ContainerDiv = styled.div`
-    grid-column: ${({ i }) => `${5 - i}/${12 - i}`};
+    // transform: skewx(-10deg);
+    left: ${({ num }) => 15 - ( num * 10)}vw;
+    position: relative;
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+
+    display: grid;
+    grid-template-columns: repeat(10, 10vw);
+    grid-template-rows: repeat(10, 10vh);
+`
+const ImgContainer = styled.div`
+    transform: skewx(-10deg);
+
+    position: absolute;
+    top: 0;
+    left: 95vw;
+
+    
+    // grid-row: 1/3;
+    // grid-column: 8/-1;
+
+    // display: flex;
+    // justify-content: flex-end;
+`
+const Img = styled.img`
+    transform: skewx(-10deg);
+    height: 60px;
+    // margin-top: 5px;
+    margin-right: 5px;
+`
+const H1 = styled.h1`
     color: white;
 
-    padding: 10px;
-
-    border: 1px solid black;
-
-    overflow: scroll;
-    > p {
-        // height 82%;
-        
-    }
+`
+const P = styled.p`
+    color: white;
+    
 `
 
-const IntroContainer = ({ num }) => {
-
-    console.log(num)
+const IntroContainer = (props) => {
+    console.log(props)
     return(
-        <ContainerDiv i={num}>
-            <h1>Header Here</h1>
-            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        <ContainerDiv {...props}>
+            {/* <ImgContainer {...props}>
+                <Img src={SmallLogo} alt=""/>
+            </ImgContainer> */}
+            <H1 className="headersection"><Img src={SmallLogo} alt=""/>{props.title}</H1>
+            <P className="psection">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </P>
         </ContainerDiv>
     )
 }
