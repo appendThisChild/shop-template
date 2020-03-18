@@ -35,11 +35,11 @@ const SectionStyle = styled.div`
         display: block;
         height: 1.5em;
         width: 1.5em;
-        border-top-left-radius: .3em;
-        border-bottom-right-radius: .3em;
+        border-top-left-radius: .25em;
+        border-bottom-right-radius: .25em;
 
-        border-top: .3em solid grey;
-        border-right: .3em solid grey;
+        border-top: .25em solid dimgrey;
+        border-right: .25em solid dimgrey;
     }
     > div {
         grid-row: 1/-1;

@@ -10,9 +10,17 @@ const ContainerStyle = styled.div`
     display: ${({ vertical }) => vertical ? "" : "flex"};
     height: ${({ height }) => height ? height : "100vh"};
     width: ${({ width }) => width ? width : "100vw"};
-    overflow: scroll;
+    ${({ vertical }) => vertical ? 
+    "overflow-x: scroll;" 
+    : 
+    "overflow-y: scroll;"
+    }
+    
     scroll-snap-type: ${({ vertical }) => vertical ? "y mandatory" : "x mandatory"};
 
+    ::-webkit-scrollbar {
+        display: none;
+    }
     > div {
         display: grid;
         grid-template-rows: repeat(10, ${({ height }) => height ? tenthOfTheSize(height) : "10vh"});

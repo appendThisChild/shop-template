@@ -6,13 +6,14 @@ import React, { useEffect} from 'react'
 import ScrollSnap from './ScrollSnap.js'
 import ScrollSnapSection from "./ScrollSnapSection.js"
 import HomeTop from './HomeTop.js'
+import HomeMain from './HomeMain.js'
 
-
-
-const Home = () => {
-
+const Home = props => {
+    const { section } = props.match.params
     useEffect(() => {
-        // document.getElementById("inProgress").scrollIntoView()
+        const id = document.getElementById(section)
+        if (id) id.scrollIntoView();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     return(
@@ -21,9 +22,7 @@ const Home = () => {
                 <HomeTop />
             </ScrollSnapSection>
             <ScrollSnapSection>
-                <main>
-                    Main
-                </main>
+                <HomeMain {...props}/>
             </ScrollSnapSection>
             <ScrollSnapSection>
                 <ScrollSnap>
@@ -33,7 +32,7 @@ const Home = () => {
                     </section>
                     </ScrollSnapSection>
                     <ScrollSnapSection>
-                    <section id="inProgress">
+                    <section >
                         Section 2
                     </section>
                     </ScrollSnapSection>
