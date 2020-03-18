@@ -9,61 +9,73 @@ const Div = styled.div`
     grid-template-columns: repeat(10, 10vw);
     grid-template-rows: repeat(10, 10vh);
     overflow: hidden;
-    left: -5vw;
+    left: ${({ inView, num }) => inView === num ? `-${(num) * 20 - 5}` : "-20"}vw;
     position: relative;
     transition: all .5s linear 0s;
-    background-color: ${({ backgroundColor }) => backgroundColor};
-    grid-row: 1/-1;
-    grid-column: ${({ num }) => `${num}/${num + 1}`};
+    background-image: url(${({ backgroundImage }) => backgroundImage});
+    background-size: auto 100vh;
+    background-position: center;
 
-    width: ${({ inView, num }) => inView === num ? `${135 - (num * 10)}vw` : "10vw"};
-    z-index: ${({ num, amount }) => amount - num};
+    grid-row: 1/-1;
+    grid-column: ${({ num }) => `${(num - 1) * 2 + 1}/${(num - 1) * 2 + 3}`};
+    width: ${({ inView, num }) => inView === num ? `135vw` : "20vw"};
+    z-index: ${({ num, amount, inView }) => inView === num ? amount : amount - num};
+
+    @media (min-width: 1024px){
+        background-size: cover;
+    }
 `
 const ButtonContainer = styled.aside`
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
     grid-row: 9/-1;
-    grid-column: 1/2;
-    // transform: skewx(-10deg);
+    grid-column: 2/3;
 `
 const Button = styled.button`
     transform: skewx(-10deg);
-    color: white;
+    color: whitesmoke;
+    text-shadow: 0px 1px 5px black;
     font-size: 33px;
     margin-bottom: 35px;
     margin-right: 1vw;
     padding: 5px;
 `
 const Span = styled.span`
-    grid-row: 8/9;
-    grid-column: 1/3;
-    transform: rotate(-90deg);
+    position: relative;
+    top: -${({ num, amount }) => (amount - num) * 35 + 70}px;
+    right: 3vw;
 
-    // position: relative;
-    // left: 5vw;
-    // height: 200px;
-
-    margin-top: 5px;
-    color: white;
+    color: ${({ backgroundColor}) => backgroundColor};
     letter-spacing: 1px;
-    text-align: center;
-    font-size: 22px;
+    font-size: 28px;
+    font-weight: 900;
+    z-index: ${({ amount, inView }) => inView ? 0 : amount + 1};
+`
+const SpanContainer = styled.div`
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    grid-row: 9/10;
+    grid-column: 1/-1;
 `
 
 const ExtendSkewedSidebar = (props) => {
     const { inView, setInView, num, title } = props
     return(
-        <Div {...props} onClick={() => setInView(inView === num ? null : num)}>
-            <IntroContainer {...props}/>
-            <Span>{title}</Span>
-            <ButtonContainer>
-                {/* <Span>{title}</Span> */}
-                <Button >
-                    {inView === num ? <>&#x276C;</> : <>&#x276D;</>}
-                </Button>
-            </ButtonContainer>
-        </Div>
+        <>
+            <SpanContainer {...props}>
+                <Span onClick={() => setInView(inView === num ? null : num)} {...props}>{title}</Span>
+            </SpanContainer>
+            <Div {...props} onClick={() => setInView(inView === num ? null : num)}>
+                <IntroContainer {...props}/>
+                <ButtonContainer>
+                    <Button {...props}>
+                        {inView === num ? <>&#x276C;</> : <>&#x276D;</>}
+                    </Button>
+                </ButtonContainer>
+            </Div>
+        </>
     )
 }
 
