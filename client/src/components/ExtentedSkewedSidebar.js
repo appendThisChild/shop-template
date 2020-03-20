@@ -13,17 +13,13 @@ const Div = styled.div`
     position: relative;
     transition: all .5s linear 0s;
     background-image: url(${({ backgroundImage }) => backgroundImage});
-    background-size: auto 100vh;
+    background-size: cover;
     background-position: center;
 
     grid-row: 1/-1;
     grid-column: ${({ num }) => `${(num - 1) * 2 + 1}/${(num - 1) * 2 + 3}`};
     width: ${({ inView, num }) => inView === num ? `135vw` : "20vw"};
     z-index: ${({ num, amount, inView }) => inView === num ? amount : amount - num};
-
-    @media (min-width: 1024px){
-        background-size: cover;
-    }
 `
 const ButtonContainer = styled.aside`
     display: flex;
@@ -37,7 +33,7 @@ const Button = styled.button`
     color: white;
     background-color: ${({ backgroundColor, inView, num }) => inView === num ? backgroundColor : backgroundColor};
     font-size: 32px;
-    margin-bottom: 35px;
+    margin-bottom: 50px;
     margin-right: 15px;
     padding-left: 6px;
     padding-right: 6px;

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import SmallLogo from '../images/A_trasp.png'
-import Background1 from '../images/Slc Photos/digital-art-artwork-abstract-wallpaper-preview.jpg'
-import Background2 from '../images/Slc Photos/istockphoto-990060098-612x612.jpg'
-import Background3 from '../images/Slc Photos/abstract-watercolor-paint-art-background-vector-21584438-2.jpg'
+import Background1 from '../images/Slc-Photos/digital-art-artwork-abstract-wallpaper-preview.jpg'
+import Background2 from '../images/Slc-Photos/istockphoto-990060098-612x612.jpg'
+import Background3 from '../images/Slc-Photos/abstract-watercolor-paint-art-background-vector-21584438-2.jpg'
 
 import ExtendSkewedSidebar from './ExtentedSkewedSidebar.js'
 

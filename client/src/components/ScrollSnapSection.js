@@ -21,9 +21,10 @@ const SectionStyle = styled.div`
         align-items: ${({ vertical }) => vertical ? "flex-end" : "center"};
     }
     > aside > button {
-        height: 3em;
-        width: 3em;
+        height: 4.5em;
+        width: 4.5em;
         display: flex;
+        flex-direction: ${({ vertical }) => vertical ? "column" : ""};
         justify-content: center;
         align-items: center;
         border: 0;
@@ -31,31 +32,41 @@ const SectionStyle = styled.div`
 
         z-index: 10;
     }
-    > aside > button > span {
-        display: block;
-        height: 1.5em;
-        width: 1.5em;
-        border-top-left-radius: .25em;
-        border-bottom-right-radius: .25em;
-
-        border-top: .25em solid dimgrey;
-        border-right: .25em solid dimgrey;
-    }
     > div {
         grid-row: 1/-1;
         grid-column: 1/-1;
     }
 `
 const ButtonStyle1 = styled.button`
-    margin-top: ${({ vertical }) => vertical ? ".75em" : ""};
-    margin-left: ${({ vertical }) => vertical ? "" : ".75em"};
+    margin-top: ${({ vertical }) => vertical ? ".25em" : ""};
+    margin-left: ${({ vertical }) => vertical ? "" : ".25em"};
 `
 const ButtonStyle2 = styled.button`
-    margin-bottom: ${({ vertical }) => vertical ? ".75em" : ""};
-    margin-right: ${({ vertical }) => vertical ? "" : ".75em"};
+    margin-bottom: ${({ vertical }) => vertical ? ".25em" : ""};
+    margin-right: ${({ vertical }) => vertical ? "" : ".25em"};
+`
+const Arrow = styled.span`
+    display: block;
+    height: 1.5em;
+    width: 1.5em;
+    border-top-left-radius: .25em;
+    border-bottom-right-radius: .25em;
+
+    border-top: .25em solid slategrey;
+    border-right: .25em solid slategrey;
+`
+const ArrowText = styled.span`
+    color: slategrey;
+    font-size: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 10px;
 `
 
-const ScrollSnapSection = ({ noBack, noForward, vertical, scroll, children }) => {
+const ScrollSnapSection = ({ noBack, noForward, top, bottom, next, previous, vertical, scroll, children }) => {
     let containerRef = useRef(null)
     const distanceOfElement = el => vertical ? el.getBoundingClientRect().height : el.getBoundingClientRect().width;
     const angle = vertical ? 135 : 45
@@ -65,7 +76,8 @@ const ScrollSnapSection = ({ noBack, noForward, vertical, scroll, children }) =>
             {!noBack ?
                 <aside>
                     <ButtonStyle1 onClick={() => scroll(-distanceOfElement(containerRef))} vertical={vertical}>
-                        <span style={{ transform: `rotate(${angle + 180}deg)`}}></span>
+                        <Arrow style={{ transform: `rotate(${angle + 180}deg)`}}></Arrow>
+                        <ArrowText style={{ transform: !vertical ? `rotate(90deg)`: ""}}>{previous || top}</ArrowText>
                     </ButtonStyle1>
                 </aside>
             :null}
@@ -75,7 +87,8 @@ const ScrollSnapSection = ({ noBack, noForward, vertical, scroll, children }) =>
             {!noForward ?
                 <aside>
                     <ButtonStyle2 onClick={() => scroll(distanceOfElement(containerRef))} vertical={vertical}>
-                        <span style={{ transform: `rotate(${angle}deg)`}}></span>
+                        <ArrowText style={{ transform: !vertical ? `rotate(-90deg)`: ""}}>{next ||bottom}</ArrowText>
+                        <Arrow style={{ transform: `rotate(${angle}deg)`}}></Arrow>
                     </ButtonStyle2>
                 </aside>
             :null}

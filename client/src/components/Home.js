@@ -18,27 +18,27 @@ const Home = props => {
     
     return(
         <ScrollSnap vertical={true}>
-            <ScrollSnapSection>
+            <ScrollSnapSection bottom="info">
                 <HomeTop />
             </ScrollSnapSection>
-            <ScrollSnapSection>
+            <ScrollSnapSection top="top" bottom="preview">
                 <HomeMain {...props}/>
             </ScrollSnapSection>
-            <ScrollSnapSection>
+            <ScrollSnapSection top="info" bottom="contact">
                 <ScrollSnap>
-                    <ScrollSnapSection>
-                    <section>
+                    <ScrollSnapSection next="more">
+                    <section id="inProgress">
                         Section
                     </section>
                     </ScrollSnapSection>
-                    <ScrollSnapSection>
+                    <ScrollSnapSection previous="preview">
                     <section >
                         Section 2
                     </section>
                     </ScrollSnapSection>
                 </ScrollSnap>
             </ScrollSnapSection>
-            <ScrollSnapSection>
+            <ScrollSnapSection top="preview">
                 <footer>
                     Bottom
                 </footer>
