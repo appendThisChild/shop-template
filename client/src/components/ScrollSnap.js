@@ -1,10 +1,6 @@
 import React, { useRef, cloneElement, Children } from 'react'
 import styled from 'styled-components'
 
-const tenthOfTheSize = length => {
-    const stringArr = length.split(/([0-9]+)/).filter(Boolean)
-    return `${parseFloat(stringArr[0]) / 10}${stringArr[1]}`
-}
 
 const ContainerStyle = styled.div`
     display: ${({ vertical }) => vertical ? "" : "flex"};
@@ -23,7 +19,7 @@ const ContainerStyle = styled.div`
     }
     > div {
         display: grid;
-        grid-template-rows: repeat(10, ${({ height }) => height ? tenthOfTheSize(height) : "10vh"});
+        grid-template-rows: repeat(10, ${({ height }) => height ? `calc(${height} / 10)` : "10vh"});
 
         flex: 0 0 auto;
         height: ${({ height }) => height ? height : "100vh"};

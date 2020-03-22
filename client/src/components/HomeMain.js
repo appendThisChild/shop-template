@@ -1,45 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
 
+// images
 import SmallLogo from '../images/A_trasp.png'
 import Background1 from '../images/Slc-Photos/digital-art-artwork-abstract-wallpaper-preview.jpg'
 import Background2 from '../images/Slc-Photos/istockphoto-990060098-612x612.jpg'
 import Background3 from '../images/Slc-Photos/abstract-watercolor-paint-art-background-vector-21584438-2.jpg'
 
+// components
 import ExtendSkewedSidebar from './ExtentedSkewedSidebar.js'
 
-const HomeMainStyle = styled.div`
-    display: grid;
-    grid-template-columns: repeat(10, 10vw);
-    grid-template-rows: repeat(10, 10vh);
-    overflow: hidden;
-`
-const BackgroundSection = styled.div`
-    background-Image: url(${({ backgroundImage }) => backgroundImage});
-    background-size: auto 100vh;
-    background-position: center;
-    transform: skewx(10deg);
-    overflow: hidden;
-    left: -25vw;
-    position: relative;
-    grid-row: 1/-1;
-    grid-column: 1/2;
-    width: 30vw;
-`
-const ImgContainer = styled.div`
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    grid-row: 9/-1;
-    grid-column: 8/-1;
-`
-const Img = styled.img`
-    height: 50px;
-    margin-bottom: 15px;
-    margin-right: 15px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 10px 0px black;
-`
+// styles
+import StyledHomeMain from '../styles/HomeMainStyle.js'
 
 const HomeMain = props => {
     const { section } = props.match.params
@@ -72,13 +43,12 @@ const HomeMain = props => {
     const { length } = contentArr
     const mappedContent = contentArr.map((content, i) => <ExtendSkewedSidebar key={i} inView={inView} setInView={setInView} num={i + 1} amount={length + 1} {...content}/>)
     return(
-        <HomeMainStyle id="info">
-            <BackgroundSection backgroundImage={inView ? contentArr[inView - 1].backgroundImage : contentArr[0].backgroundImage} />
+        <StyledHomeMain id="info">
             {mappedContent}
-            <ImgContainer>
-                <Img src={SmallLogo} alt=""/>
-            </ImgContainer>
-        </HomeMainStyle>
+            <aside>
+                <img src={SmallLogo} alt=""/>
+            </aside>
+        </StyledHomeMain>
     )
 }
 

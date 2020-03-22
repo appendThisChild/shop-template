@@ -21,14 +21,12 @@ const SectionStyle = styled.div`
         align-items: ${({ vertical }) => vertical ? "flex-end" : "center"};
     }
     > aside > button {
-        height: 4.5em;
-        width: 4.5em;
+        height: 3em;
+        width: 3em;
         display: flex;
         flex-direction: ${({ vertical }) => vertical ? "column" : ""};
         justify-content: center;
         align-items: center;
-        border: 0;
-        background-color: transparent;
 
         z-index: 10;
     }
@@ -38,45 +36,47 @@ const SectionStyle = styled.div`
     }
 `
 const ButtonStyle1 = styled.button`
-    margin-top: ${({ vertical }) => vertical ? ".25em" : ""};
-    margin-left: ${({ vertical }) => vertical ? "" : ".25em"};
+    margin-top: ${({ vertical }) => vertical ? "0px" : ""};
+    margin-left: ${({ vertical }) => vertical ? "" : "7px"};
 `
 const ButtonStyle2 = styled.button`
-    margin-bottom: ${({ vertical }) => vertical ? ".25em" : ""};
-    margin-right: ${({ vertical }) => vertical ? "" : ".25em"};
+    margin-bottom: ${({ vertical }) => vertical ? "0px" : ""};
+    margin-right: ${({ vertical }) => vertical ? "" : "7px"};
 `
 const Arrow = styled.span`
-    display: block;
-    height: 1.5em;
-    width: 1.5em;
-    border-top-left-radius: .25em;
-    border-bottom-right-radius: .25em;
-
-    border-top: .25em solid slategrey;
-    border-right: .25em solid slategrey;
-`
-const ArrowText = styled.span`
     color: slategrey;
-    font-size: 14px;
+    font-size: 16px;
 
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 10px;
+    padding-bottom: .85px;
+
+    width: 30px;
+    height: 20px;
+`
+const ArrowText = styled.span`
+    color: slategrey;
+    font-size: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
     height: 10px;
 `
 
 const ScrollSnapSection = ({ noBack, noForward, top, bottom, next, previous, vertical, scroll, children }) => {
     let containerRef = useRef(null)
     const distanceOfElement = el => vertical ? el.getBoundingClientRect().height : el.getBoundingClientRect().width;
-    const angle = vertical ? 135 : 45
+    const angle = vertical ? 90 : 0
     
     return(
         <SectionStyle ref={el => containerRef = el} vertical={vertical}>
             {!noBack ?
                 <aside>
                     <ButtonStyle1 onClick={() => scroll(-distanceOfElement(containerRef))} vertical={vertical}>
-                        <Arrow style={{ transform: `rotate(${angle + 180}deg)`}}></Arrow>
+                        <Arrow style={{ transform: `rotate(${angle + 180}deg) scaleX(.7) scaleY(2)`}}>&#x276F;</Arrow>
                         <ArrowText style={{ transform: !vertical ? `rotate(90deg)`: ""}}>{previous || top}</ArrowText>
                     </ButtonStyle1>
                 </aside>
@@ -88,7 +88,7 @@ const ScrollSnapSection = ({ noBack, noForward, top, bottom, next, previous, ver
                 <aside>
                     <ButtonStyle2 onClick={() => scroll(distanceOfElement(containerRef))} vertical={vertical}>
                         <ArrowText style={{ transform: !vertical ? `rotate(-90deg)`: ""}}>{next ||bottom}</ArrowText>
-                        <Arrow style={{ transform: `rotate(${angle}deg)`}}></Arrow>
+                        <Arrow style={{ transform: `rotate(${angle}deg) scaleX(.7) scaleY(2)`}}>&#x276F;</Arrow>
                     </ButtonStyle2>
                 </aside>
             :null}

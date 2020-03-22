@@ -21,7 +21,9 @@ const App = () => {
             <Switch>
                 <Route path="/pageNotFound" render={renderProps => <PageNotFound {...renderProps}/>}/>
                 <Route path="/template" render={renderProps => <Template {...renderProps}/>}/>
-
+                <Route exact path="/" render={renderProps => <Home {...renderProps}/>}/>
+                <Route path="/h/:section" render={renderProps => <Home {...renderProps}/>}/>
+                
                 
 
 
@@ -53,8 +55,6 @@ const App = () => {
                 <Route path="/password" render={renderProps => <Password {...renderProps}/>}/>
                 <Route path="/dashboard/:section=:id" render={renderProps => <Dashboard {...renderProps}/>}/>
                 <Route path="/dashboard/:section" render={renderProps => <Dashboard {...renderProps}/>}/>
-                <Route exact path="/" render={renderProps => <Home {...renderProps}/>}/>
-                <Route path="/:section" render={renderProps => <Home {...renderProps}/>}/>
             </Switch>
         </div>
     )
