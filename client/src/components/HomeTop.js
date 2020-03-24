@@ -9,10 +9,8 @@ import Background from '../images/Slc-Photos/alexzeer150700281.jpg'
 import RotatingQuotes from "./RotatingQuotes.js"
 
 // styles
-import StyledHomeTop from '../styles/HomeTopStyle.js'
+import { StyledHomeTop, StyledHomeTopLogoContainer, StyledShopLinkContainer } from '../styles/HomeTopStyle.js'
 import StyledNeo from '../styles/NeoStyle.js'
-import StyledShopLinkContainer from '../styles/ShopLinkContainerStyle.js'
-import StyledHomeTopLogoContainer from '../styles/HomeTopLogoContainerStyle.js'
 
 const HomeTop = () => {
     return(

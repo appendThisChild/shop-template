@@ -17,7 +17,7 @@ const Style = styled.div`
         margin-bottom: 15px;
         margin-right: 15px;
         border-radius: 50%;
-        box-shadow: 0px 0px 10px -3px black;
+        box-shadow: 0px 0px 10px -1px black;
     }
 `
 

@@ -20,6 +20,7 @@ const Style = styled.div`
         margin-top: 12px;
         margin-bottom: 25px;
         font-size: 25px;
+        line-height: 35px;
         letter-spacing: .5px;
         text-align: center;
         color: lightgrey;

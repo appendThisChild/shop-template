@@ -5,9 +5,7 @@ import InfoContentContainer from './InfoContentContainer.js'
 
 // styles
 import StyledNeo from '../styles/NeoStyle.js'
-import StyledInfoTitleButton from '../styles/InfoTitleButtonStyle.js'
-import StyledInfoTabButton from '../styles/InfoTabButtonStyle.js'
-import StyledInfoContainer from '../styles/InfoContainerStyle.js'
+import { StyledInfoContainer, StyledInfoTabButton, StyledInfoTitleButton } from '../styles/InfoContainerStyle.js'
 
 const ExtendSkewedSidebar = (props) => {
     const { inView, setInView, num, title } = props

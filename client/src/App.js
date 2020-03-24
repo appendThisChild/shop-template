@@ -18,11 +18,14 @@ const App = () => {
     return(
         <div>
             <Prompt />
+
             <Switch>
                 <Route path="/pageNotFound" render={renderProps => <PageNotFound {...renderProps}/>}/>
                 <Route path="/template" render={renderProps => <Template {...renderProps}/>}/>
                 <Route exact path="/" render={renderProps => <Home {...renderProps}/>}/>
-                <Route path="/h/:section" render={renderProps => <Home {...renderProps}/>}/>
+                <Route path="/page/:section" render={renderProps => <Home {...renderProps}/>}/>
+                <Route path="/page" render={renderProps => <Home {...renderProps}/>}/>
+                
                 
                 
 

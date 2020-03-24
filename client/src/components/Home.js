@@ -6,6 +6,7 @@ import ScrollSnap from './ScrollSnap.js'
 import ScrollSnapSection from "./ScrollSnapSection.js"
 import HomeTop from './HomeTop.js'
 import HomeMain from './HomeMain.js'
+import HomeContact from './HomeContact.js'
 
 const Home = props => {
     const { section } = props.match.params
@@ -38,9 +39,7 @@ const Home = props => {
                 </ScrollSnap>
             </ScrollSnapSection>
             <ScrollSnapSection top="preview">
-                <footer>
-                    Bottom
-                </footer>
+                <HomeContact />
             </ScrollSnapSection>
         </ScrollSnap>
     )
